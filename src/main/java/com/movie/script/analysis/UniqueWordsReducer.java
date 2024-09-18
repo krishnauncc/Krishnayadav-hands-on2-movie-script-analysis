@@ -27,8 +27,8 @@ public class UniqueWordsReducer extends Reducer<Text, Text, Text, Text> {
             uniqWordsBuilder.setLength(uniqWordsBuilder.length() - 2);
         }
 
-        uniqueWordsText.set("(" + uniqWordsBuilder.toString() + ")");
+        uniqueWordsText.set(uniqWordsBuilder.toString());
 
-        context.write(key, uniqueWordsText);
+        context.write(key, uniqueWordsText); //emit (charachter, (unique words seperated by , ))
     }
 }

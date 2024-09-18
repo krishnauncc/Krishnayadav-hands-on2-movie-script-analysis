@@ -28,7 +28,7 @@ public class UniqueWordsMapper extends Mapper<Object, Text, Text, Text> {
                     String characterWord = itr.nextToken().replaceAll("[^a-zA-Z]", "").toLowerCase(); // Clean the word
                     if (!characterWord.isEmpty()) {
                         word.set(characterWord);
-                        context.write(character, word); // Emit (character:word, 1)
+                        context.write(character, word); // Emit (character, word)
                     }
                 }
             }

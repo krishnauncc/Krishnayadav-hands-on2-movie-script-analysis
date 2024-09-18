@@ -19,6 +19,6 @@ public class DialogueLengthReducer extends Reducer<Text, IntWritable, Text, IntW
         
         result.set(sum);
 
-        context.write(key, result); // Emit (character, word:count)
+        context.write(key, result); // Emit (character, count)
     }
 }

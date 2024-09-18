@@ -9,7 +9,7 @@ import java.util.StringTokenizer;
 
 public class DialogueLengthMapper extends Mapper<Object, Text, Text, IntWritable> {
 
-    private final static IntWritable wordCount = new IntWritable();
+    // private final static IntWritable wordCount = new IntWritable();
     private Text characterName = new Text();
     private final static IntWritable one = new IntWritable(1);
 
@@ -28,7 +28,7 @@ public class DialogueLengthMapper extends Mapper<Object, Text, Text, IntWritable
                 String word = itr.nextToken().replaceAll("[^a-zA-Z]", "").toLowerCase(); // Clean the word
                 if (!word.isEmpty()) {
                     characterName.set(character);
-                    context.write(characterName, one); // Emit (character:word, 1)
+                    context.write(characterName, one); // Emit (character, 1)
                 }
             }
         }

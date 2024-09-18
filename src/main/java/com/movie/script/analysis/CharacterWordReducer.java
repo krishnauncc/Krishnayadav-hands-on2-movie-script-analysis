@@ -16,12 +16,12 @@ public class CharacterWordReducer extends Reducer<Text, IntWritable, Text, IntWr
         for (IntWritable val : values) {
             sum += val.get();
         }
-        String[] keyParts = key.toString().split(":");
-        String character = keyParts[0];
-        String word = keyParts[1];
+        // String[] keyParts = key.toString().split(":");
+        // String character = keyParts[0];
+        // String word = keyParts[1];
         result.set(sum);
 
-        context.write(key, result); // Emit (character, word:count)
+        context.write(key, result); // Emit (character:word, count)
 
 
     }
